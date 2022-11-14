@@ -1,5 +1,5 @@
 <template>
-  <div class="scrollbar w-60 shrink-0 overflow-y-auto border-r-2 border-weak">
+  <div class="scrollbar w-60 shrink-0 overflow-y-auto bg-white/5">
     <!-- 图标行, 毛玻璃 -->
     <div class="sticky top-0 z-10 flex h-12 items-center px-6 backdrop-blur-sm">
       <!-- 三个按钮 -->
