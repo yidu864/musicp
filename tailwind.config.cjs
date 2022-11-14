@@ -1,6 +1,15 @@
 // const colors = require('tailwindcss/colors')
 
-const withOpacity = (v) => `rgba(${v}, <alpha-value>)`
+// const withOpacity = (v) => `rgba(${v}, <alpha-value>)`
+
+const colorMap = {
+  // 主色
+  base: '#6ab7f2',
+  // 主要暗色
+  baseDark: '#0e2656',
+  // 默认字色，透明度0.75
+  textBase: '#ffffff'
+}
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -10,22 +19,11 @@ module.exports = {
     extend: {
       colors: {
         // 基础色，主色
-        pbase: '#6ab7f2',
+        'p-base': colorMap.base,
         // 基础色，字体色
-        ptbase: '#ffffff'
-      },
-      backgroundColor: {
-        //utilities like `bg-base` and `bg-primary`
-        based: '#6ab7f2',
-        accent: withOpacity('var(--color-accent)'),
-        weak: withOpacity('var(--color-weak)')
-      },
-      textColor: {
-        //like `text-base` and `text-primary`
-        weak: withOpacity('var(--color-weak)')
-      },
-      borderColor: {
-        weak: withOpacity('var(--color-weak)')
+        'p-tbase': colorMap.textBase,
+        // 主要暗色
+        'p-dark': colorMap.baseDark
       }
     },
     container: {

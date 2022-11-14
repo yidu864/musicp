@@ -16,14 +16,14 @@
   height: 100%;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.75);
+  /* color: rgba(255, 255, 255, 0.75); */
   /* background-color: #242424; */
   background-image: url('/bg/bg-mountains.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 
-  @apply selection:bg-based selection:bg-opacity-30;
+  @apply text-white/75 selection:bg-p-base selection:bg-opacity-30;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -72,7 +72,7 @@ body {
 
 @layer components {
   .left-list-select {
-    @apply text-white before:absolute before:right-0 before:top-1/2 before:h-6 before:w-1 before:-translate-y-1/2 before:rounded before:bg-based before:shadow-xl;
+    @apply text-white before:absolute before:right-0 before:top-1/2 before:h-6 before:w-1 before:-translate-y-1/2 before:rounded before:bg-p-base before:shadow-xl;
   }
 }
 
@@ -92,6 +92,5 @@ body {
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
-  background: theme('backgroundColor.weak');
-  @apply rounded;
+  @apply rounded bg-p-dark;
 }
