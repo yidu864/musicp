@@ -16,12 +16,14 @@
   height: 100%;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(255, 255, 255, 0.75);
   /* background-color: #242424; */
   background-image: url('/bg/bg-mountains.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+
+  @apply selection:bg-based selection:bg-opacity-30;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -70,7 +72,7 @@ body {
 
 @layer components {
   .left-list-select {
-    @apply bg-accent bg-opacity-50  before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-accent;
+    @apply text-white before:absolute before:right-0 before:top-1/2 before:h-6 before:w-1 before:-translate-y-1/2 before:rounded before:bg-based before:shadow-xl;
   }
 }
 

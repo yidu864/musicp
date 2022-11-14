@@ -1,7 +1,7 @@
 <template>
   <div class="scrollbar w-60 shrink-0 overflow-y-auto border-r-2 border-weak">
-    <!-- 图标行 -->
-    <div class="sticky top-0 z-10 flex bg-based px-6 pt-8 pb-10">
+    <!-- 图标行, 毛玻璃 -->
+    <div class="sticky top-0 z-10 flex h-12 items-center px-6 backdrop-blur-sm">
       <!-- 三个按钮 -->
       <div class="flex flex-1 space-x-1">
         <div
@@ -20,7 +20,7 @@
       />
     </div>
     <!-- logo 行 -->
-    <div class="flex cursor-default select-none items-center pl-5 pb-10">
+    <div class="mb-3 flex h-12 cursor-default select-none items-center pl-5">
       <Iconfont
         icon="icon-github"
         class="mr-3 text-3xl"
@@ -32,36 +32,21 @@
       :key="item"
     >
       <!-- 平台聚合 -->
-      <div class="mb-4 h-5 pl-5 text-left text-xs leading-5">
-        平台聚合 {{ item }}
-      </div>
+      <div class="pl-5 text-left text-sm leading-10">Your Music {{ item }}</div>
       <!-- 选项 -->
       <div
-        class="relative mb-2 ml-2 flex h-10 cursor-pointer items-center rounded pl-3 leading-10 transition-colors hover:bg-weak"
+        v-for="s in [1, 2, 3, 4]"
+        :key="'s' + s"
+        :class="[
+          'relative flex h-10  cursor-pointer items-center rounded pl-4 transition-colors hover:bg-white hover:bg-opacity-30',
+          { 'left-list-select': s === 3 }
+        ]"
       >
         <Iconfont
           icon="icon-github"
-          class="mr-6 text-xl"
+          class="mr-4 text-xl"
         />
-        <span>网易云音乐</span>
-      </div>
-      <div
-        class="left-list-select relative mb-2 ml-2 flex h-10 cursor-pointer items-center rounded pl-3 leading-10 transition-colors hover:bg-weak"
-      >
-        <Iconfont
-          icon="icon-github"
-          class="mr-6 text-xl"
-        />
-        <span>网易云音乐</span>
-      </div>
-      <div
-        class="relative mb-2 ml-2 flex h-10 cursor-pointer items-center rounded pl-3 leading-10 transition-colors hover:bg-weak"
-      >
-        <Iconfont
-          icon="icon-github"
-          class="mr-6 text-xl"
-        />
-        <span>网易云音乐</span>
+        <span class="text-xs">网易云音乐 {{ s }}</span>
       </div>
     </template>
   </div>
