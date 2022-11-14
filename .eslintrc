@@ -1,0 +1,32 @@
+{
+  "root": true,
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "@vue/prettier",
+    "@vue/typescript/recommended",
+    "plugin:vue/vue3-recommended"
+  ],
+  "plugins": [
+    "vue"
+  ],
+  "rules": {
+    "vue/html-self-closing": "off",
+    "vue/multi-word-component-names": 0,
+    "vue/html-quotes": 0,
+    "vue/singleline-html-element-content-newline": "off",
+    "prettier/prettier": [
+      "warn",
+      {
+        "singleQuote": true,
+        "semi": false,
+        "trailingComma": "none",
+        "endOfLine": "auto",
+        "singleAttributePerLine": true
+      }
+    ]
+  }
+}
