@@ -1,0 +1,95 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.iconfont {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+:root {
+  font-size: 16px;
+  font-weight: 400;
+
+  height: 100%;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  /* background-color: #242424; */
+  background-image: url('/bg/bg-mountains.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+#app {
+  flex: 1;
+  display: flex;
+  height: 100%;
+  overflow: inherit;
+}
+
+@layer base {
+  :root {
+    --color-base: 36, 36, 36;
+    --color-text-base: 255, 255, 255;
+    /* 4 */
+    --color-accent: 92, 92, 244;
+    --color-weak: 50, 50, 50;
+  }
+
+  /* .theme-light {
+    --color-base: 36, 36, 36;
+    --color-text-base: 255, 255, 255;
+    --color-accent: 57, 120, 252;
+  }
+
+  .theme-dark {
+    --color-base: 36, 36, 36;
+    --color-text-base: 255, 255, 255;
+    --color-accent: 57, 120, 252;
+  } */
+}
+
+@layer components {
+  .left-list-select {
+    @apply bg-accent bg-opacity-50  before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-accent;
+  }
+}
+
+/* For Firefox Browser */
+.scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #000 #fff;
+}
+
+/* For Chrome, EDGE, Opera, Others */
+.scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: theme('backgroundColor.weak');
+  @apply rounded;
+}
