@@ -1,5 +1,5 @@
 <template>
-  <div class="play-bar">play-bar</div>
+  <div class="">play-bar</div>
 </template>
 <script setup lang="ts">
 // #region component-info
@@ -11,9 +11,3 @@
  */
 // #endregion
 </script>
-<style lang="scss">
-.play-bar {
-  width: 100%;
-  height: 100%;
-}
-</style>

@@ -1,15 +1,14 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
-import midIndex from '@/views/mid/index.vue';
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
 const routes: RouteRecordRaw[] = [
-  {
-    name: 'index',
-    path: '/',
-    component: midIndex,
-  },
-];
+  // {
+  //   name: 'index',
+  //   path: '/',
+  //   component: midIndex
+  // }
+]
 
 export default createRouter({
   history: createWebHashHistory(),
-  routes,
-});
+  routes
+})

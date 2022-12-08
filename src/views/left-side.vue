@@ -61,12 +61,6 @@ import Iconfont from '@/components/iconfont.vue'
  * @output none
  */
 // #endregion
-const cates = [
-  { name: '首页', icon: 'icon-home', key: 'home' },
-  { name: '功能区', key: 'gnq' },
-  { name: '网易云音乐', icon: 'icon-wangyiyunyinle', key: 'netsee' },
-  { name: '私人FM(网易云)', icon: 'icon-luyinjishouyinjidiantai', key: 'fm' }
-] as const
 
 // const cateKeys: Record<typeof cates[number]['key'], string> = cates
 //   .map((v) => v.key)
