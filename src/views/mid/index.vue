@@ -1,16 +1,16 @@
 <template>
-  <section class="flex-1">
+  <section class="flex-1 overflow-hidden">
     <!-- 上一步下一步， 搜索栏 -->
     <!-- 客制化页面 -->
     <!-- 播放条 -->
     <mid-top />
     <router-view />
-    <play-bar />
+    <!-- <play-bar /> -->
   </section>
 </template>
 <script setup lang="ts">
 import MidTop from './mid-top.vue'
-import PlayBar from './play-bar.vue'
+// import PlayBar from './play-bar.vue'
 
 // #region component-info
 /**
