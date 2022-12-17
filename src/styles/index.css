@@ -2,13 +2,6 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-.iconfont {
-  width: 1em;
-  height: 1em;
-  fill: currentColor;
-  overflow: hidden;
-}
-
 :root {
   font-size: 16px;
   font-weight: 400;
@@ -48,6 +41,14 @@ body {
   overflow: inherit;
 }
 
+.iconfont {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  overflow: hidden;
+  vertical-align: -0.15em;
+}
+
 @layer base {
   :root {
     --color-base: 36, 36, 36;
@@ -73,6 +74,10 @@ body {
 @layer components {
   .left-list-select {
     @apply text-white before:absolute before:right-0 before:top-1/2 before:h-6 before:w-1 before:-translate-y-1/2 before:rounded before:bg-p-base before:shadow-xl;
+  }
+
+  .bg-weak-dark {
+    box-shadow: inset 0 0 0 10rem #0000000d;
   }
 }
 
