@@ -27,6 +27,8 @@ module.exports = {
         'p-tbase': colorMap.textBase,
         // 主要暗色
         'p-dark': colorMap.baseDark,
+        // 基础色，字体色
+        'p-light': colorMap.textBase,
         // 按钮底色
         'pbg-blue': colorMap.blue,
         // 按钮底色

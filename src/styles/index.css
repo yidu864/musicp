@@ -42,8 +42,8 @@ body {
 }
 
 .iconfont {
-  width: 1em;
-  height: 1em;
+  width: var(--iconsize, 1em);
+  height: var(--iconsize, 1em);
   fill: currentColor;
   overflow: hidden;
   vertical-align: -0.15em;
