@@ -4,10 +4,14 @@
     <header class="flex gap-[2vw] px-[2vw] py-[1vw]">
       <!-- 封面 -->
       <aside class="relative h-[25vh] w-[25vh]">
-        <img
-          class="relative z-10 h-[100%] w-[100%] rounded-md"
-          src="http://img.oulu.me/056%20Shady%20Water.png"
+        <AvatarBtn
+          pic="http://y.gtimg.cn/music/photo_new/T002R300x300M0000042m8G61Judeb.jpg?n=1?param=512y512"
+          class="z-10 h-[100%] w-[100%] rounded-md"
         />
+        <!-- <img
+          class="relative "
+          src="http://img.oulu.me/056%20Shady%20Water.png"
+        /> -->
         <!-- 阴影 -->
         <!-- <div
           class="absolute top-3 left-0 z-0 h-[100%] w-[100%] scale-95 rounded-md bg-cover opacity-60 blur-sm"
@@ -18,7 +22,7 @@
       </aside>
       <!-- 歌单名 / 播放全部按钮 | 加入播放列表 编辑歌单信息 导入 搜索栏 -->
       <main class="flex flex-1 flex-col justify-between">
-        <h2 class="mb-7 mt-1 flex-1 text-3xl font-bold text-white">
+        <h2 class="mb-7 mt-1 flex-1 text-3xl font-bold">
           纯音 | 缓解压力.安眠.去享受孤独 纯音 | 缓解压力.安眠.去享受孤独 纯音
         </h2>
         <div class="space-x-2">
@@ -62,12 +66,16 @@
 
     <!-- 歌曲列表 -->
     <!-- 列表项 = 封面 歌名/专辑 歌名 操作栏(加入播放列表 加入歌单 删除 原始链接) -->
-    <main class="flex-1 px-[2vw] pt-[1vw]">
-      <song-item />
+    <main class="flex-1 space-y-1 px-[2vw] pt-[1vw]">
+      <song-item
+        v-for="item in [1, 2, 3, 4, 5, 6]"
+        :key="item"
+      />
     </main>
   </section>
 </template>
 <script setup lang="ts">
+import AvatarBtn from '@/components/avatar-btn.vue'
 import SongItem from './song-item.vue'
 
 // #region component-info

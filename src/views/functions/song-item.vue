@@ -1,17 +1,16 @@
 <template>
   <!-- 封面 歌名/专辑 歌名 操作栏(加入播放列表 加入歌单 删除 原始链接) -->
   <div
-    class="song-item group flex rounded-md bg-orange-400 bg-opacity-20 py-2 px-2"
+    class="song-item group flex rounded-md border-b-2 border-b-p-light border-opacity-20 py-2 px-2 transition hover:bg-p-light hover:bg-opacity-20"
   >
     <!-- 封面 -->
     <img
       src="http://img.oulu.me/003%20Spring%20Warmth.png"
-      class="mr-[1vw] h-12 w-12 cursor-pointer rounded-md"
+      alt="song vatar"
+      class="mr-[1vw] h-12 w-12 cursor-pointer rounded"
     />
     <div class="flex-1 self-end overflow-hidden">
-      <div class="truncate font-bold text-white">
-        Heart of Sakura (Original Mix)
-      </div>
+      <div class="truncate font-bold">Heart of Sakura (Original Mix)</div>
       <div class="truncate text-sm">
         <a class="cursor-pointer hover:underline">DaniSogen</a>
       </div>
