@@ -1,5 +1,5 @@
 <template>
-  <section class="flex-1 overflow-hidden">
+  <section class="flex flex-1 flex-col overflow-hidden">
     <!-- 上一步下一步， 搜索栏 -->
     <!-- 客制化页面 -->
     <!-- 播放条 -->
