@@ -44,45 +44,48 @@
         >
           纯音 | 缓解压力.安眠.去享受孤独 纯音 | 缓解压力.安眠.去享受孤独 纯音
         </h2>
-        <div class="space-x-2">
-          <span>
+        <div class="flex justify-between">
+          <span class="space-x-2">
+            <span>
+              <button
+                :class="[
+                  'hover:bg-weak-dark inline-flex items-center rounded-l-md bg-pbg-blue px-2 py-1 transition-all'
+                ]"
+              >
+                <Iconfont icon="icon-bofang" />
+                <span class="ml-1">
+                  {{ hdExpand ? '播放全部' : '' }}
+                </span>
+              </button>
+              <button
+                :class="[
+                  'hover:bg-weak-dark rounded-r-md bg-pbg-blue px-2 py-1 align-top transition-all'
+                ]"
+              >
+                <Iconfont
+                  icon="icon-plus"
+                  :class="hdExpand ? 'inline-block' : ''"
+                />
+              </button>
+            </span>
             <button
               :class="[
-                'hover:bg-weak-dark inline-flex items-center rounded-l-md bg-pbg-blue px-2 py-1 transition-all'
+                'hover:bg-weak-dark inline-flex items-center rounded-md bg-pbg-blue px-2 py-1 transition-all'
               ]"
             >
-              <Iconfont icon="icon-bofang" />
-              <span class="ml-1">
-                {{ hdExpand ? '播放全部' : '' }}
-              </span>
+              <Iconfont icon="icon-wenbenshuru" />
+              <span class="ml-1">{{ hdExpand ? '编辑' : '' }}</span>
             </button>
             <button
               :class="[
-                'hover:bg-weak-dark rounded-r-md bg-pbg-blue px-2 py-1 align-top transition-all'
+                'hover:bg-weak-dark inline-flex items-center rounded-md bg-pbg-blue px-2 py-1 transition-all'
               ]"
             >
-              <Iconfont
-                icon="icon-plus"
-                :class="hdExpand ? 'inline-block' : ''"
-              />
+              <Iconfont icon="icon-daoru" />
+              <span class="ml-1">{{ hdExpand ? '导入' : '' }}</span>
             </button>
           </span>
-          <button
-            :class="[
-              'hover:bg-weak-dark inline-flex items-center rounded-md bg-pbg-blue px-2 py-1 transition-all'
-            ]"
-          >
-            <Iconfont icon="icon-wenbenshuru" />
-            <span class="ml-1">{{ hdExpand ? '编辑' : '' }}</span>
-          </button>
-          <button
-            :class="[
-              'hover:bg-weak-dark inline-flex items-center rounded-md bg-pbg-blue px-2 py-1 transition-all'
-            ]"
-          >
-            <Iconfont icon="icon-daoru" />
-            <span class="ml-1">{{ hdExpand ? '导入' : '' }}</span>
-          </button>
+          <Search placeholder="search list" />
         </div>
       </main>
     </header>
@@ -91,12 +94,13 @@
     <!-- 列表项 = 封面 歌名/专辑 歌名 操作栏(加入播放列表 加入歌单 删除 原始链接) -->
     <main class="space-y-1 px-[2vw] pt-[1vw]">
       <song-item
-        v-for="item in songs"
+        v-for="(item, i) in songs"
         :key="item.id"
         :sname="item.name"
         :artist="item.ar"
         :album="item.al"
         :avatar="item.img"
+        :active="i === 1"
       />
     </main>
   </section>
@@ -108,6 +112,7 @@ import { ref } from 'vue'
 import { debounce } from 'lodash'
 
 import AvatarBtn from '@/components/avatar-btn.vue'
+import Search from '@/components/search.vue'
 import SongItem from './song-item.vue'
 
 // #region component-info
@@ -126,7 +131,7 @@ import SongItem from './song-item.vue'
 const hdExpand = ref(true)
 let onScroll = (e: any) => {
   const target: HTMLDivElement = e.target
-  hdExpand.value = target.scrollTop < 10
+  hdExpand.value = target.scrollTop <= 0
 }
 onScroll = debounce(onScroll, 200)
 </script>

@@ -52,7 +52,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import Iconfont from '@/components/iconfont.vue'
 // #region component-info
 /**
  * 首页左侧栏目

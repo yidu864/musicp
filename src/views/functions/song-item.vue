@@ -2,7 +2,10 @@
   <!-- 封面 歌名/专辑 歌名 操作栏(加入播放列表 加入歌单 删除 原始链接) -->
   <!-- hover:bg-p-light hover:bg-opacity-20 -->
   <div
-    class="song-item group flex rounded-md border-b-2 border-b-p-light border-opacity-20 bg-black bg-opacity-20 py-2 px-2 transition"
+    :class="[
+      'song-item group flex rounded-md border-b-2 border-b-p-light border-opacity-20 py-2 px-2 transition',
+      active ? 'bg-p-base/50' : 'hover:bg-white/20'
+    ]"
   >
     <!-- 封面 -->
     <!-- http://img.oulu.me/003%20Spring%20Warmth.png -->
@@ -11,7 +14,7 @@
       alt="song vatar"
       class="mr-[1vw] h-12 w-12 cursor-pointer rounded"
     />
-    <div class="flex-1 self-end overflow-hidden">
+    <div class="flex-1 self-center overflow-hidden">
       <!-- Heart of Sakura (Original Mix) -->
       <div class="truncate font-bold">{{ sname }}</div>
       <div class="truncate text-sm">
