@@ -16,7 +16,9 @@
     />
     <div class="flex-1 self-center overflow-hidden">
       <!-- Heart of Sakura (Original Mix) -->
-      <div class="truncate font-bold">{{ sname }}</div>
+      <div class="cursor-pointer truncate font-bold hover:underline">
+        {{ sname }}
+      </div>
       <div class="truncate text-sm">
         <a class="cursor-pointer hover:underline">{{ artist }}</a>
       </div>

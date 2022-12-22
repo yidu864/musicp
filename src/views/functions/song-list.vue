@@ -1,16 +1,7 @@
 <template>
-  <section
-    class="scrollbar flex-1 overflow-y-auto scroll-smooth"
-    @scroll="onScroll"
-  >
+  <section class="relative flex flex-1 flex-col overflow-hidden">
     <!-- 顶栏 = 歌单封面 -->
-    <header
-      ref="hd"
-      :class="[
-        'sticky top-0 flex gap-[2vw] px-[2vw] py-[1vw] ',
-        hdExpand ? '' : 'backdrop-blur-md'
-      ]"
-    >
+    <header :class="['flex gap-[2vw] px-[2vw] py-[1vw] ']">
       <!-- 封面 -->
       <aside
         :class="[
@@ -44,55 +35,42 @@
         >
           纯音 | 缓解压力.安眠.去享受孤独 纯音 | 缓解压力.安眠.去享受孤独 纯音
         </h2>
-        <div class="flex justify-between">
-          <span class="space-x-2">
+        <div class="flex items-center justify-between">
+          <span class="gap-y-1 space-x-2">
             <span>
-              <button
-                :class="[
-                  'hover:bg-weak-dark inline-flex items-center rounded-l-md bg-pbg-blue px-2 py-1 transition-all'
-                ]"
+              <MpBtn
+                icon="icon-bofang"
+                class="rounded-l-md rounded-r-none"
               >
-                <Iconfont icon="icon-bofang" />
-                <span class="ml-1">
-                  {{ hdExpand ? '播放全部' : '' }}
-                </span>
-              </button>
-              <button
-                :class="[
-                  'hover:bg-weak-dark rounded-r-md bg-pbg-blue px-2 py-1 align-top transition-all'
-                ]"
-              >
-                <Iconfont
-                  icon="icon-plus"
-                  :class="hdExpand ? 'inline-block' : ''"
-                />
-              </button>
+                <span v-show="hdExpand">播放全部</span>
+              </MpBtn>
+              <MpBtn
+                icon="icon-plus"
+                class="rounded-r-md rounded-l-none"
+              />
             </span>
-            <button
-              :class="[
-                'hover:bg-weak-dark inline-flex items-center rounded-md bg-pbg-blue px-2 py-1 transition-all'
-              ]"
-            >
-              <Iconfont icon="icon-wenbenshuru" />
-              <span class="ml-1">{{ hdExpand ? '编辑' : '' }}</span>
-            </button>
-            <button
-              :class="[
-                'hover:bg-weak-dark inline-flex items-center rounded-md bg-pbg-blue px-2 py-1 transition-all'
-              ]"
-            >
-              <Iconfont icon="icon-daoru" />
-              <span class="ml-1">{{ hdExpand ? '导入' : '' }}</span>
-            </button>
+            <MpBtn icon="icon-wenbenshuru">
+              <span v-show="hdExpand">编辑</span>
+            </MpBtn>
+            <MpBtn icon="icon-daoru">
+              <span v-show="hdExpand">导入</span>
+            </MpBtn>
           </span>
-          <Search placeholder="search list" />
+          <Search
+            placeholder="search list"
+            class="h-8"
+          />
         </div>
       </main>
     </header>
 
     <!-- 歌曲列表 -->
     <!-- 列表项 = 封面 歌名/专辑 歌名 操作栏(加入播放列表 加入歌单 删除 原始链接) -->
-    <main class="space-y-1 px-[2vw] pt-[1vw]">
+    <main
+      ref="main"
+      class="scrollbar flex-1 space-y-1 overflow-y-auto scroll-smooth px-[2vw] pt-[1vw]"
+      @scroll="onScroll"
+    >
       <song-item
         v-for="(item, i) in songs"
         :key="item.id"
@@ -103,6 +81,15 @@
         :active="i === 1"
       />
     </main>
+    <Transition name="fade">
+      <MpBtn
+        v-show="!hdExpand"
+        class="absolute right-6 bottom-16"
+        icon="icon-ictotop"
+        round
+        @click="toTop"
+      />
+    </Transition>
   </section>
 </template>
 <script setup lang="ts">
@@ -113,6 +100,7 @@ import { debounce } from 'lodash'
 
 import AvatarBtn from '@/components/avatar-btn.vue'
 import Search from '@/components/search.vue'
+import MpBtn from '@/components/mp-button.vue'
 import SongItem from './song-item.vue'
 
 // #region component-info
@@ -124,14 +112,17 @@ import SongItem from './song-item.vue'
  */
 // #endregion
 
-// onMounted(() => {
-//   hd.value
-// })
+// 问题, 透过一层也会触发 hover ? 规避掉这个问题
 
 const hdExpand = ref(true)
 let onScroll = (e: any) => {
   const target: HTMLDivElement = e.target
-  hdExpand.value = target.scrollTop <= 0
+  hdExpand.value = target.scrollTop < 0.25 * window.innerHeight
 }
 onScroll = debounce(onScroll, 200)
+
+const main = ref<HTMLDivElement>()
+const toTop = () => {
+  main.value?.scrollTo({ top: 0, behavior: 'smooth' })
+}
 </script>
