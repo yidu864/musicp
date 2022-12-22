@@ -25,7 +25,7 @@
 
 withDefaults(
   defineProps<{
-    icon: string
+    icon?: string
     placeholder: string
   }>(),
   {
